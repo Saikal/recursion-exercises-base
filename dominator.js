@@ -2,7 +2,21 @@ const { flattenTreeToArray } = require('./dom-util');
 const _ = require('underscore');
 
 const getElementById = function(root, id) {
-  // Your code here
+
+    for(x=0; x<node.childNodes.length; x++)
+    {
+      let childNode = node.childNodes[x];
+      if(childNode.nodeType === 1) { 
+
+        if(id === childNode.id) {
+          return childNode;
+        } else {
+              if( childNode.childNodes.length > 0 )
+                this.getElementById(childNode, id, count);
+          }
+      }
+    }
+  }
 };
 
 const getElementsByClassName = function(root, className) {

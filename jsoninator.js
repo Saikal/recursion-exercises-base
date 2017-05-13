@@ -5,9 +5,26 @@ const _ = require('underscore'); // the real one! :)
 // But you don't. So you're going to write it from scratch...
 
 
-
+//for arrays only!:
+let str = "[";
 const stringify = function(obj) {
-  // your code goes here
+  if(Array.isArray(obj) === true) {
+
+    for (let i = 0; i < obj.length; i++){
+
+        if(Array.isArray(obj[i]) === false){
+            if(i === obj.length-1) {
+              str = str+obj[i];
+            } else
+            str = str+obj[i]+",";
+        } else {
+          str = str + "[";
+            stringify(obj[i]);
+          }
+    }
+      str = str + "]";
+      return str;
+  }
 };
 
 module.exports = {
